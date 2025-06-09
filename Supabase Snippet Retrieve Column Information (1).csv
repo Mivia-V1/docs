@@ -1,0 +1,101 @@
+table_name,column_name,data_type,is_nullable
+habit_logs,id,uuid,NO
+habit_logs,user_id,uuid,YES
+habit_logs,user_habit_id,uuid,YES
+habit_logs,completed,boolean,YES
+habit_logs,log_date,date,NO
+habit_logs,reflection_id,uuid,YES
+habit_logs,check_in_type,text,YES
+habit_logs,created_at,timestamp without time zone,YES
+habit_logs,updated_at,timestamp without time zone,YES
+journal_ai_chats,id,uuid,NO
+journal_ai_chats,user_id,uuid,NO
+journal_ai_chats,journal_entry_id,uuid,YES
+journal_ai_chats,message,text,NO
+journal_ai_chats,response,text,YES
+journal_ai_chats,created_at,timestamp with time zone,NO
+journal_ai_chats,message_type,text,NO
+journal_ai_chats,chat_type,text,YES
+journal_entries,id,uuid,NO
+journal_entries,user_id,uuid,NO
+journal_entries,daily_content_id,uuid,YES
+journal_entries,sequence_number,integer,NO
+journal_entries,content,text,NO
+journal_entries,created_at,timestamp with time zone,NO
+journal_entries,updated_at,timestamp with time zone,NO
+journal_entries,title,text,YES
+mood_entries,id,uuid,NO
+mood_entries,user_id,uuid,NO
+mood_entries,mood,text,NO
+mood_entries,recorded_at,timestamp with time zone,NO
+mood_entries,follow_up_response,text,YES
+pillars,id,uuid,NO
+pillars,created_at,timestamp with time zone,NO
+pillars,title,text,NO
+pillars,description,text,YES
+pillars,framework,text,NO
+pillars,slug,text,NO
+pillars,display_name,text,YES
+profiles,id,uuid,NO
+profiles,updated_at,timestamp with time zone,NO
+profiles,personality_scores,jsonb,YES
+profiles,openness,double precision,YES
+profiles,conscientiousness,double precision,YES
+profiles,extraversion,double precision,YES
+profiles,agreeableness,double precision,YES
+profiles,neuroticism,double precision,YES
+profiles,challenge_importance,text,YES
+profiles,obstacles,text,YES
+profiles,selected_pillar,text,YES
+profiles,selected_goals,ARRAY,YES
+profiles,full_name,text,YES
+profiles,avatar_url,text,YES
+profiles,current_challenge,text,YES
+profiles,inspiration_preferences,ARRAY,YES
+profiles,program_start_date,date,YES
+profiles,openai_thread_id,text,YES
+profiles,primary_goal,text,YES
+reflections,id,uuid,NO
+reflections,user_id,uuid,YES
+reflections,content,text,NO
+reflections,source_type,text,YES
+reflections,inferred_pillar_id,uuid,YES
+reflections,emotional_tags,jsonb,YES
+reflections,created_at,timestamp without time zone,YES
+test_profiles,id,uuid,NO
+test_profiles,created_at,timestamp with time zone,NO
+test_profiles,email,text,YES
+user_ai_context,profile_id,uuid,YES
+user_ai_context,personality_scores,jsonb,YES
+user_ai_context,context_data,jsonb,YES
+user_ai_context,current_challenge,text,YES
+user_ai_context,challenge_importance,text,YES
+user_ai_context,obstacles,text,YES
+user_ai_context,selected_pillar,text,YES
+user_assistant_threads,id,uuid,NO
+user_assistant_threads,user_id,uuid,NO
+user_assistant_threads,assistant_type,text,NO
+user_assistant_threads,thread_id,text,NO
+user_assistant_threads,created_at,timestamp with time zone,NO
+user_assistant_threads,last_interaction_at,timestamp with time zone,NO
+user_goals,id,uuid,NO
+user_goals,created_at,timestamp with time zone,NO
+user_goals,pillar_id,uuid,NO
+user_goals,title,text,NO
+user_goals,framework,text,NO
+user_goals,focus,text,NO
+user_goals,measurable,text,NO
+user_goals,key_metric,text,NO
+user_habits,id,uuid,NO
+user_habits,user_id,uuid,YES
+user_habits,goal_id,uuid,YES
+user_habits,habit_title,text,NO
+user_habits,habit_description,text,YES
+user_habits,frequency,text,YES
+user_habits,source,text,YES
+user_habits,pillar_id,uuid,YES
+user_habits,is_active,boolean,YES
+user_habits,created_at,timestamp without time zone,YES
+user_habits,start_date,date,YES
+user_habits,scheduled_days,ARRAY,YES
+v_pillars_goals,pillar_id,uuid,YES
