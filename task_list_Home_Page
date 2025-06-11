@@ -1,0 +1,53 @@
+## Feature Implementation Breakdown
+
+### Core Requirements Summary
+Implement the MiVia Home Page as the main landing screen that engages users immediately upon app launch with daily check-ins, inspirational quotes, message indicators, and navigation to the four life pillars. The home page serves as the psychological anchor point that motivates consistent app usage through supportive content and easy access to core features.
+
+### Key UX Considerations
+- Create a warm, welcoming atmosphere that feels supportive rather than demanding
+- Ensure daily check-in is prominent but not intrusive, respecting users who may have already checked in
+- Quote display should be readable and inspiring without overwhelming the interface
+- Navigation must be intuitive with clear visual indicators for the current section
+- Unread message indicators should be noticeable but not anxiety-inducing
+- Support both light and dark modes for comfortable viewing at any time
+
+## Implementation Tasks
+
+- [ ] 1.0 Data & Backend Implementation
+  - [ ] 1.1 Create or extend Supabase tables for daily check-ins (user_id, rating, datetime, is_edited)
+  - [ ] 1.2 Set up daily quotes system - either Supabase table with quote rotation logic or integration with quotes API
+  - [ ] 1.3 Implement query to fetch user's latest check-in for today and unread message count
+  - [ ] 1.4 Create stored procedures or functions for efficient daily quote selection based on date
+
+- [ ] 2.0 Core Functionality
+  - [ ] 2.1 Implement daily check-in logic with rating capture (mood slider/emoji selector/rating bar)
+  - [ ] 2.2 Add check-in validation to prevent multiple entries per day (show edit option until midnight)
+  - [ ] 2.3 Create quote refresh mechanism that updates at midnight local time
+  - [ ] 2.4 Implement real-time unread message count synchronization with existing messaging system
+  - [ ] 2.5 Handle user authentication state to display personalized welcome message
+
+- [ ] 3.0 User Interface Implementation
+  - [ ] 3.1 Design header section with MiVia logo and personalized welcome message
+  - [ ] 3.2 Create inspirational quote banner with appropriate typography and visual treatment
+  - [ ] 3.3 Build daily check-in component with intuitive input method and completion states
+  - [ ] 3.4 Implement unread message indicator with badge count and tap navigation
+  - [ ] 3.5 Create bottom TabView navigation with Home, Purpose, Health, Emotion, Connection, Messages tabs
+  - [ ] 3.6 Apply consistent styling with gradients, shadows, corner radii for warmth
+  - [ ] 3.7 Ensure all elements support Dynamic Type for accessibility
+  - [ ] 3.8 Implement loading states for async data (quotes, check-in status, message count)
+
+- [ ] 4.0 Integration & Polish
+  - [ ] 4.1 Connect home page navigation to existing pillar views and messaging screens
+  - [ ] 4.2 Implement proper state management for check-in data and message count updates
+  - [ ] 4.3 Add subtle animations for tab transitions, check-in interactions, and quote loading
+  - [ ] 4.4 Test offline functionality and graceful degradation when Supabase is unreachable
+  - [ ] 4.5 Verify accessibility labels and VoiceOver navigation flow
+  - [ ] 4.6 Validate responsive layout across all iPhone screen sizes
+  - [ ] 4.7 Prepare string resources for potential localization
+
+### Notes
+- The check-in component should reference existing PillarCheckInView patterns for consistency
+- Quote source needs clarification - implement flexible architecture to support both Supabase and external API
+- Message count integration depends on existing notification/messaging module structure
+- Consider caching daily quote locally to reduce API calls and improve launch performance
+- Ensure check-in edit functionality respects user's timezone for midnight cutoff
